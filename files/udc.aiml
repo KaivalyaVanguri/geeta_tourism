@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <category>
+    <pattern>hi</pattern>
+    <template>Hello how are you?</template>
+    </category>
+    <category>
+    <pattern>i am fine</pattern>
+    <template>Do you want to learn about something? Tell me the topic!</template>
+    </category>
+    <category>
+        <pattern>*</pattern>
+        <template>
+            Here is some information about <star/>
+            <button>
+                <text>Click Here to know more!</text>
+                <url>https://en.wikipedia.org//wiki/<star/></url>
+            </button>
+        </template>
+    </category>
+    <category>
+        <pattern>Show me the map of *</pattern>
+        <template>
+            Here is the map of <star/>
+            <button>
+                <text>Click Here to get an expanded view!</text>
+                <url>https://www.google.co.in/maps?q=<star/></url>
+            </button>
+        </template>
+    </category>
+    <category>
+        <pattern>How is the weather in *</pattern>
+        <template>
+            <think> <set name="it"><star/></set></think>
+            I hope its a fine day in <star/> 
+            <button>
+                <text>Click Here to know the latest weather forecast in <star/>!</text>
+                <url>https://www.weather-forecast.com/locations/<star/>/forecasts/latest</url>
+            </button>
+        </template>
+    </category>
+    <category>
+        <pattern>Tell me more about it</pattern>
+        <template>
+            <condition name="it">
+            <li value="*"><srai> <get name="it"/></srai></li>
+            <li>Tell you about what?</li>
+            </condition>
+        </template>
+    </category>
+</aiml>
